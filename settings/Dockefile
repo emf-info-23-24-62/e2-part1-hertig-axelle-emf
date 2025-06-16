@@ -1,0 +1,21 @@
+# Image Node avec la version 18-alpine
+FROM node:18-alpine 
+# Définir le répertoire de travail app
+WORKDIR /app
+# run du package git
+RUN apk  add --no-cache git
+# run du git clone
+RUN git clone https://github.com/toptal/haste-server
+#  l'istallation des dépendance
+RUN npm install
+# copy de index.html
+COPY config.json /app
+COPY index.html /static
+
+# start de l'installation des dépendances
+Run npm start 
+
+
+
+
+
